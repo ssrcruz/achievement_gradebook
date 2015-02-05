@@ -1,13 +1,17 @@
 class LoginController < ApplicationController
   def login
     if request.post?
-      teacher = Teacher.find_by_email(params[:email])
-      if teacher && teacher.authenticate(params[:password]) #check to make sure that teacher != nil
-        session[:teacher_id] = teacher.id
-        flash[:notice] = "Welcome!" #flash persists after a redirect
-        redirect_to parents_path
+      if params[:type] == "Teacher"
+        teacher = Teacher.find_by_email(params[:email])
+        if teacher && teacher.authenticate(params[:password]) #check to make sure that teacher != nil
+          session[:teacher_id] = teacher.id
+          flash[:notice] = "Welcome!" #flash persists after a redirect
+          redirect_to teachers_path
+        else
+          flash.now[:notice] = "Please re-enter credentials" #flash.now does not hang out after a redirect
+        end
       else
-        flash.now[:notice] = "Please re-enter credentials" #flash.now does not hang out after a redirect
+        flash[:notice] = "FAILURE"
       end
     end
   end
