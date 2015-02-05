@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   post 'login/logout'
   get 'login/logout'
-  
+
   resources :parents
   resources :teachers
   resources :students

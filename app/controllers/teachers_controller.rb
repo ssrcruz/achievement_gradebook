@@ -1,15 +1,19 @@
 class TeachersController < ApplicationController
   before_action :check_logged_in
 
+
   def index
     @teachers = Teacher.all
+    @grades = Grade.all
   end
 
   def new
     @teacher = Teacher.new
+    @grade = Grade.new
   end
 
   def edit
+    
   end
 
   def create
