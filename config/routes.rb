@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  get 'login/login'
+  post 'login/login'
+
+  post 'login/logout'
   resources :parents
   resources :teachers
   resources :students
-  
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
