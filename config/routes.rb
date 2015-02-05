@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   get 'login/login'
   post 'login/login'
 
-  # post 'login/logout'
+  post 'login/logout'
+  get 'login/logout'
+  
   resources :parents
   resources :teachers
   resources :students

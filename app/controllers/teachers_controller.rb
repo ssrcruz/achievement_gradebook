@@ -23,4 +23,8 @@ class TeachersController < ApplicationController
 
   def destroy
   end
+
+  private def check_logged_in
+    redirect_to login_login_path unless session[:teacher_id]
+  end
 end

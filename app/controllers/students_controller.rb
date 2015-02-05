@@ -15,4 +15,8 @@ class StudentsController < ApplicationController
 
   def update
   end
+
+  private def check_logged_in
+    redirect_to login_login_path unless session[:student_id]
+  end
 end

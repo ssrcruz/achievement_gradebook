@@ -18,4 +18,8 @@ class ParentsController < ApplicationController
 
   def show
   end
+
+  private def check_logged_in
+    redirect_to login_login_path unless session[:parent_id]
+  end
 end
