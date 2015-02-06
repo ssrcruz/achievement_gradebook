@@ -6,6 +6,19 @@ class Student < ActiveRecord::Base
 
   belongs_to :teacher
 
+  def self.get_all_children_for_teacher_id( teacher_id )
+    teachers_children = []
+
+    self.all.each do |student|
+      if student.teacher_id == teacher_id
+        teachers_children << student
+      end
+    end
+
+    return teachers_children
+  end
+
+
   def self.get_all_children
    children = []
 
@@ -20,7 +33,7 @@ class Student < ActiveRecord::Base
    pair = []
 
     self.all.each do |sort|
-      pair << [sort.name, sort.student_email]
+      pair << [sort.name,sort.student_email]
     end
     return pair
   end
