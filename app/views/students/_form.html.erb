@@ -24,10 +24,12 @@
   <%= f.label :password %><br>
   <%= f.text_field :password %>
 </div>
+
 <div class="field">
-  <%= f.label :teacher_id %><br>
-  <%= f.number_field :teacher_id %>
+  <%= f.label "Assign to teacher:" %><br>
+  <%= f.select :teacher_id, options_for_select(Teacher.classes), include_blank: true %>
 </div>
+
 <div class="actions">
   <%= f.submit %>
 </div>
