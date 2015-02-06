@@ -1,8 +1,14 @@
 class GradesController < ApplicationController
   before_action :check_logged_in
+  before_action :set_grade, only: [:show, :edit, :update, :destroy]
+
 
   def index
     @grades = Grade.all
+  end
+
+  def new
+    @grade = Grade.new
   end
 
   def edit
@@ -25,10 +31,6 @@ class GradesController < ApplicationController
     end
   end
 
-  def new
-    @grade = Grade.new
-  end
-
   def update
   end
 
@@ -39,4 +41,14 @@ class GradesController < ApplicationController
   private def grade_params
     params.require(:grade).permit(:student_email, :assignment_name, :due_on, :score)
   end
+
+  def destroy
+    @grade.destroy
+    redirect_to teachers_path, notice: 'Grade was destroyed'
+  end
+
+  private def set_grade
+    @grade = Grade.find(params[:id])
+  end
+
 end
