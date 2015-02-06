@@ -35,6 +35,8 @@ class LoginController < ApplicationController
 
   def logout
     session[:teacher_id] = nil
+    session[:student_id] = nil
+    session[:parent_id] = nil
     redirect_to login_login_path
   end
 end

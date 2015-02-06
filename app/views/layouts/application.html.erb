@@ -11,10 +11,16 @@
 
 <% if session[:teacher_id] %>
 <%= link_to "Log out", login_logout_path %>
+<% elsif session[:student_id] %>
+<%= link_to "Log out", login_logout_path %>
+<% elsif session[:parent_id] %>
+<%= link_to "Log out", login_logout_path %>
 <% end %>
 
 <%= yield %>
 <p><%= params %></p>
-<p><%= session[:teacher_id] %></p>
+<p>Teacher ID:<%= session[:teacher_id] %></p>
+<p>Student ID:<%= session[:student_id] %></p>
+<p>Parent ID:<%= session[:parent_id] %></p>
 </body>
 </html>
