@@ -25,11 +25,8 @@
     <%= f.text_field :password %>
   </div>
   <div class="field">
-    <%= f.label :child_name %><br>
-    <%= f.text_field :child_name %>
-  <div class="field">
-    <%= f.label :teacher_id %><br>
-    <%= f.number_field :teacher_id %>
+    <%= f.label "Guardian of:" %><br>
+    <%= f.select :child_name, options_for_select(Student.get_all_children), include_blank: true %>
   </div>
   <div class="actions">
     <%= f.submit %>

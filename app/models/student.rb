@@ -6,12 +6,22 @@ class Student < ActiveRecord::Base
 
   belongs_to :teacher
 
-  def self.get_form_option
-   classes = []
+  def self.get_all_children
+   children = []
 
     self.all.each do |sort|
-      classes << [sort.name, sort.id]
+      children << sort.name
     end
-    return classes
+    return children
+  end
+
+
+  def self.get_all_children_email_pairs
+   pair = []
+
+    self.all.each do |sort|
+      pair << [sort.name, sort.student_email]
+    end
+    return pair
   end
 end

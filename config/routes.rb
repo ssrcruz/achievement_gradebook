@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+
   get 'login/login'
   post 'login/login'
 
   post 'login/logout'
   get 'login/logout'
 
+  resources :grades
   resources :parents
   resources :teachers
   resources :students
