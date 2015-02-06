@@ -1,2 +1,20 @@
 <h1>Parents#index</h1>
-<p>Find me in app/views/parents/index.html.erb</p>
+
+
+<table>
+  <tbody>
+    <tr><td>
+      <% parent = Parent.find_by_id(session[:parent_id]) %>
+      <%= parent.child_name %></td></tr>
+      <% student = Student.find_by(name: parent.child_name ) %>
+      <% grade = Grade.get_assignments_for_student_email( student.student_email ) %>
+      <% grade.each do |grade| %>
+      <tr>
+        <td><%= grade.assignment_name %></td>
+        <td><%= grade.score %></td>
+        <td><%= grade.due_on %></td>
+      </tr>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
