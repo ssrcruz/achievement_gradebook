@@ -1,4 +1,4 @@
-<h1>Teachers#index</h1>
+<h1>Teacher Dashboard</h1>
 
 <%= link_to 'Create new grade', new_grade_path %><br><br>
 
@@ -26,6 +26,3 @@
 <%= link_to 'Create new parent', new_parent_path %><br>
 
 <%= link_to 'Change your password', edit_teacher_path(Teacher.find_by(id: session[:teacher_id] )) %>
-
-
-<p>Find me in app/views/teachers/index.html.erb</p>
