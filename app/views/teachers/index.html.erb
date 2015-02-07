@@ -25,5 +25,7 @@
 <%= link_to 'Create new student', new_student_path %><br>
 <%= link_to 'Create new parent', new_parent_path %><br>
 
+<%= link_to 'Change your password', edit_teacher_path(Teacher.find_by(id: session[:teacher_id] )) %>
+
 
 <p>Find me in app/views/teachers/index.html.erb</p>

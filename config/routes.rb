@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   post 'login/logout'
   get 'login/logout'
 
+  post 'login/changepassword'
+  get 'login/changepassword'
+
   resources :grades
   resources :parents
   resources :teachers
