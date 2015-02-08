@@ -33,11 +33,13 @@ class ParentsController < ApplicationController
     redirect_to teachers_path
   end
 
-  private def check_logged_in
+  private
+  def check_logged_in
     redirect_to login_login_path unless session[:parent_id]|| session[:teacher_id]
   end
 
-  private def parent_params
+  private
+  def parent_params
     params.require(:parent).permit(:name, :email, :child_name, :teacher_id, :password)
   end
 end

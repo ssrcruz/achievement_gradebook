@@ -34,11 +34,13 @@ class GradesController < ApplicationController
   def update
   end
 
-  private def check_logged_in
+  private
+  def check_logged_in
     redirect_to login_login_path unless session[:teacher_id]
   end
 
-  private def grade_params
+  private
+  def grade_params
     params.require(:grade).permit(:student_email, :assignment_name, :due_on, :score)
   end
 
@@ -47,7 +49,8 @@ class GradesController < ApplicationController
     redirect_to teachers_path, notice: 'Grade was destroyed'
   end
 
-  private def set_grade
+  private
+  def set_grade
     @grade = Grade.find(params[:id])
   end
 

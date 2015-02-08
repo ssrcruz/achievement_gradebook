@@ -33,11 +33,13 @@ class StudentsController < ApplicationController
     redirect_to teachers_path
   end
 
-  private def check_logged_in
+  private
+  def check_logged_in
     redirect_to login_login_path unless session[:student_id] || session[:teacher_id]
   end
 
-  private def student_params
+  private
+  def student_params
     params.require(:student).permit(:name, :student_email, :teacher_id, :password)
   end
 end
