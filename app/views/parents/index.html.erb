@@ -9,13 +9,7 @@
       <% student = Student.find_by(name: parent.child_name ) %>
       <% if student %>
         <% grade = Grade.get_assignments_for_student_email( student.student_email ) %>
-        <% grade.each do |grade| %>
-        <tr>
-          <td><%= grade.assignment_name %></td>
-          <td><%= grade.score %></td>
-          <td><%= grade.due_on %></td>
-        </tr>
-        <% end %>
+        <%= display_grades(grade) %>
       <% end %>
     </tr>
   </tbody>
