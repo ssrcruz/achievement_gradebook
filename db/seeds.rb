@@ -35,3 +35,5 @@
    Parent.create(name:"micah", email: "micah@micah.com", password: "micah", child_name: "james")
    Parent.create(name:"Sandy", email: "Sandy@Sandy.com", password: "Sandy", child_name: "mark")
    Parent.create(name:"Joey", email: "Joey@Joey.com", password: "Joey", child_name: "stacy")
+
+   Achievement.create(name:"Use integration by parts", date: "2015-2-7", point_value: 200  )
