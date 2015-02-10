@@ -3,7 +3,7 @@ class ParentsController < ApplicationController
 
   def index
     @parents = Parent.all
-    @grades = Grade.all
+    @achievement = Achievement.all
   end
 
   def new

@@ -1,0 +1,16 @@
+<h1>Edit Tags for <%= @achievement.name %></h1>
+
+<%= form_tag update_tags_achievement_path do %>
+<ul>
+  <% @tags.each do |t| %>
+  <li>
+    <%= check_box_tag "tags[#{t.id}]", true, @achievement.tags.include?(t) %>
+    <%= t.name %>
+  </li>
+  <% end %>
+</ul>
+
+<%= submit_tag "Save Tags" %>
+<% end %>
+
+<p><%= link_to "Back to achievements", achievements_path %></p>

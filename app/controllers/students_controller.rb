@@ -1,9 +1,14 @@
 class StudentsController < ApplicationController
   before_action :check_logged_in
 
+  def achievement
+    
+  end
+
+
   def index
     @student = Student.all
-    @grades = Grade.all
+    @achievement = Achievement.all
   end
 
   def new
